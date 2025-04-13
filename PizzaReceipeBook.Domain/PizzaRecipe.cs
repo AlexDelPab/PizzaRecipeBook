@@ -1,13 +1,21 @@
 ﻿namespace PizzaReceipeBook.Domain;
 
-public class PizzaRecipe
+public class PizzaRecipe(
+    Guid id,
+    string name,
+    string ingredients,
+    string instructions,
+    TimeSpan preparationTime,
+    TimeSpan cookingTime,
+    Guid authorId,
+    Author author)
 {
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public string Ingredients { get; set; }
-    public string Instructions { get; set; }
-    public TimeSpan PreparationTime { get; set; }
-    public TimeSpan CookingTime { get; set; }
-    public Guid AuthorId { get; set; }
-    public Author Author { get; set; }
+    public Guid Id { get; set; } = id;
+    public string Name { get; set; } = name;
+    public string Ingredients { get; set; } = ingredients;
+    public string Instructions { get; set; } = instructions;
+    public TimeSpan PreparationTime { get; set; } = preparationTime;
+    public TimeSpan CookingTime { get; set; } = cookingTime;
+    public Guid AuthorId { get; set; } = authorId;
+    public Author Author { get; set; } = author;
 }

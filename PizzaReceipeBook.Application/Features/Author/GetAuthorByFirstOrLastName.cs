@@ -15,8 +15,8 @@ public static class GetAuthorByFirstOrLastName
         return app.MapGet($"{ApiPath.Base}/authors/by-name",
             async ([FromQuery] string name, IRequestProcessor processor) =>
             {
-                var authorId = await processor.HandleAsync(new Query(name), default);
-                return Results.Ok(authorId);
+                var author = await processor.HandleAsync(new Query(name), default);
+                return Results.Ok(author);
             });
     }
 
@@ -30,23 +30,13 @@ public static class GetAuthorByFirstOrLastName
         public async Task<AuthorResponse?> HandleAsync(Query request, CancellationToken cancellationToken)
         {
             var author = await dbContext.Authors
-                .Where(a => a.FirstName.Contains(request.Name) || a.LastName.Contains(request.Name))
-                .ToListAsync(cancellationToken);
+                .Where(a => EF.Functions.Like(a.FirstName.ToLower(), $"%{request.Name.ToLower()}%") || 
+                            EF.Functions.Like(a.LastName.ToLower(), $"%{request.Name.ToLower()}%"))
+                .SingleOrDefaultAsync(cancellationToken);
 
-            if (author.Count > 1)
-            {
-                throw new InvalidOperationException("Multiple authors found with the given name.");
-            }
-
-            if (!author.Any())
-            {
-                return null;
-            }
-
-            var result = author.Single();
-            return new AuthorResponse(result.Id, result.FirstName, result.LastName, result.Bio);
+            return author is null ? null : new AuthorResponse(author.Id, author.FirstName, author.LastName);
         }
     }
 
-    public record AuthorResponse(Guid Id, string FirstName, string LastName, string Bio);
+    public record AuthorResponse(Guid Id, string FirstName, string LastName);
 }

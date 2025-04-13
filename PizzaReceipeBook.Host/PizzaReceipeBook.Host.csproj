@@ -12,7 +12,6 @@
         <PackageReference Include="Scalar.AspNetCore" Version="2.1.13" />
         <PackageReference Include="softaware.CQS" Version="4.0.0"/>
         <PackageReference Include="softaware.CQS.DependencyInjection" Version="4.0.1"/>
-        <PackageReference Include="softaware.CQS.Decorators.Validation" Version="4.0.0"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
           <PrivateAssets>all</PrivateAssets>

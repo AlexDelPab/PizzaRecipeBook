@@ -4,7 +4,6 @@ using PizzaReceipeBook.Application.Features.Author;
 using PizzaReceipeBook.Domain;
 using PizzaReceipeBook.Infrastructure;
 using Scalar.AspNetCore;
-using softaware.Cqs.Decorators.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         c => c.MigrationsAssembly(typeof(AppDbContext).Assembly)));
 
 builder.Services
-    .AddSoftawareCqs(b => b.IncludeTypesFrom(typeof(ApiPath).Assembly))
-    .AddDecorators(b => b.AddRequestHandlerDecorator(typeof(ValidationRequestHandlerDecorator<,>)));
+    .AddSoftawareCqs(b => b.IncludeTypesFrom(typeof(ApiPath).Assembly));
 
 var app = builder.Build();
 
