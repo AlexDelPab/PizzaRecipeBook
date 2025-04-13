@@ -1,8 +1,9 @@
-using Carter;
 using Microsoft.EntityFrameworkCore;
 using PizzaReceipeBook.Application;
+using PizzaReceipeBook.Application.Features.Author;
 using PizzaReceipeBook.Domain;
 using PizzaReceipeBook.Infrastructure;
+using Scalar.AspNetCore;
 using softaware.Cqs.Decorators.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,14 +20,13 @@ builder.Services
     .AddSoftawareCqs(b => b.IncludeTypesFrom(typeof(ApiPath).Assembly))
     .AddDecorators(b => b.AddRequestHandlerDecorator(typeof(ValidationRequestHandlerDecorator<,>)));
 
-builder.Services.AddCarter();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
@@ -44,6 +44,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.MapCarter();
+CreateAuthor.MapEndpoint(app);
+GetAuthorByFirstOrLastName.MapEndpoint(app);
 
 app.Run();

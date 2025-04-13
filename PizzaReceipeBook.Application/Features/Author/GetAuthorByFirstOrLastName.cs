@@ -1,4 +1,3 @@
-using Carter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,34 +10,27 @@ namespace PizzaReceipeBook.Application.Features.Author;
 
 public static class GetAuthorByFirstOrLastName
 {
-    class Endpoint : ICarterModule
+    public static RouteHandlerBuilder MapEndpoint(IEndpointRouteBuilder app)
     {
-        public void AddRoutes(IEndpointRouteBuilder app)
-        {
-            app.MapGet($"{ApiPath.Base}/authors/by-name", async ([FromQuery] string name, IRequestProcessor processor) =>
+        return app.MapGet($"{ApiPath.Base}/authors/by-name",
+            async ([FromQuery] string name, IRequestProcessor processor) =>
             {
                 var authorId = await processor.HandleAsync(new Query(name), default);
                 return Results.Ok(authorId);
             });
-        }
     }
 
-    internal record Query(string Name) : IQuery<AuthorResponse?>;
-
-    internal sealed class Handler : IRequestHandler<Query, AuthorResponse?>
+    public class Query(string name) : IQuery<AuthorResponse?>
     {
-        private readonly AppDbContext _dbContext;
+        public string Name { get; } = name;
+    }
 
-        public Handler(AppDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
+    public class Handler(AppDbContext dbContext) : IRequestHandler<Query, AuthorResponse?>
+    {
         public async Task<AuthorResponse?> HandleAsync(Query request, CancellationToken cancellationToken)
         {
-            var author = await _dbContext.Authors
-                .Where(a => EF.Functions.Like(a.FirstName, $"%{request.Name}%") ||
-                            EF.Functions.Like(a.LastName, $"%{request.Name}%"))
+            var author = await dbContext.Authors
+                .Where(a => a.FirstName.Contains(request.Name) || a.LastName.Contains(request.Name))
                 .ToListAsync(cancellationToken);
 
             if (author.Count > 1)
@@ -56,5 +48,5 @@ public static class GetAuthorByFirstOrLastName
         }
     }
 
-    internal record AuthorResponse(Guid Id, string FirstName, string LastName, string Bio);
+    public record AuthorResponse(Guid Id, string FirstName, string LastName, string Bio);
 }

@@ -11,9 +11,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Carter" Version="9.0.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.3.0"/>
         <PackageReference Include="softaware.CQS" Version="4.0.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.3.0" />
     </ItemGroup>
 
     <ItemGroup>
