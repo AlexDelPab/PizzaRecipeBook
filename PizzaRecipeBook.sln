@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaReceipeBook.Host", "PizzaReceipeBook.Host\PizzaReceipeBook.Host.csproj", "{D71A1677-B3F7-4A85-BF83-AF8BFC627AA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaReceipeBook.Domain", "PizzaReceipeBook.Domain\PizzaReceipeBook.Domain.csproj", "{3D73E66C-C59C-4380-81A5-D67FE983EA98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaReceipeBook.Infrastructure", "PizzaReceipeBook.Infrastructure\PizzaReceipeBook.Infrastructure.csproj", "{40F1809B-6904-4E62-B4C0-59E517F09AA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaReceipeBook.Application", "PizzaReceipeBook.Application\PizzaReceipeBook.Application.csproj", "{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D71A1677-B3F7-4A85-BF83-AF8BFC627AA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71A1677-B3F7-4A85-BF83-AF8BFC627AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71A1677-B3F7-4A85-BF83-AF8BFC627AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71A1677-B3F7-4A85-BF83-AF8BFC627AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D73E66C-C59C-4380-81A5-D67FE983EA98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D73E66C-C59C-4380-81A5-D67FE983EA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D73E66C-C59C-4380-81A5-D67FE983EA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D73E66C-C59C-4380-81A5-D67FE983EA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40F1809B-6904-4E62-B4C0-59E517F09AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40F1809B-6904-4E62-B4C0-59E517F09AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40F1809B-6904-4E62-B4C0-59E517F09AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40F1809B-6904-4E62-B4C0-59E517F09AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+@PizzaReceipeBook.Host_HostAddress = http://localhost:5176
+
+GET {{PizzaReceipeBook.Host_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
