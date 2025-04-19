@@ -13,11 +13,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\PizzaReceipeBook.Infrastructure\PizzaReceipeBook.Infrastructure.csproj"/>
+      <Folder Include="Services\PizzaRecipe\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Services\PizzaRecipe\" />
+      <ProjectReference Include="..\PizzaReceipeBook.Domain\PizzaReceipeBook.Domain.csproj" />
+      <ProjectReference Include="..\PizzaReceipeBook.Infrastructure.Contracts\PizzaReceipeBook.Infrastructure.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

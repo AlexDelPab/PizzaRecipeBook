@@ -4,6 +4,8 @@ using PizzaReceipeBook.Domain;
 using PizzaReceipeBook.Host.Controllers;
 using PizzaReceipeBook.Infrastructure;
 using PizzaReceipeBook.Infrastructure.Author;
+using PizzaReceipeBook.Infrastructure.Contracts.Author;
+using PizzaReceipeBook.Infrastructure.Contracts.PizzaReceipe;
 using PizzaReceipeBook.Infrastructure.PizzaReceipe;
 using Scalar.AspNetCore;
 
@@ -16,8 +18,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("PizzaReceipes"));
 
-builder.Services.AddTransient<AuthorRepository>();
-builder.Services.AddTransient<PizzaRecipeRepository>();
+builder.Services.AddTransient<IAuthorRepository<Author>, AuthorRepository>();
+builder.Services.AddTransient<IPizzaReceipeRepository<PizzaRecipe>, PizzaRecipeRepository>();
 builder.Services.AddTransient<AuthorService>();
 
 var app = builder.Build();

@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaReceipeBook.Infrastruc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaReceipeBook.Application", "PizzaReceipeBook.Application\PizzaReceipeBook.Application.csproj", "{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaReceipeBook.Infrastructure.Contracts", "PizzaReceipeBook.Infrastructure.Contracts\PizzaReceipeBook.Infrastructure.Contracts.csproj", "{0ED12D80-E56C-4013-86A2-DF829093DEDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF92C570-BA5C-4818-8B8C-9B00CF9185C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED12D80-E56C-4013-86A2-DF829093DEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED12D80-E56C-4013-86A2-DF829093DEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED12D80-E56C-4013-86A2-DF829093DEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED12D80-E56C-4013-86A2-DF829093DEDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

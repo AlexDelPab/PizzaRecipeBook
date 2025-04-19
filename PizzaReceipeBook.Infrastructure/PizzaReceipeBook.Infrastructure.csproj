@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\PizzaReceipeBook.Domain\PizzaReceipeBook.Domain.csproj" />
+      <ProjectReference Include="..\PizzaReceipeBook.Infrastructure.Contracts\PizzaReceipeBook.Infrastructure.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
