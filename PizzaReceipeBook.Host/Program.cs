@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using PizzaReceipeBook.Application;
-using PizzaReceipeBook.Application.Features;
+using PizzaReceipeBook.Application.Services.Author;
 using PizzaReceipeBook.Domain;
+using PizzaReceipeBook.Host.Controllers;
 using PizzaReceipeBook.Infrastructure;
+using PizzaReceipeBook.Infrastructure.Author;
+using PizzaReceipeBook.Infrastructure.PizzaReceipe;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +16,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("PizzaReceipes"));
 
-builder.Services
-    .AddSoftawareCqs(b => b.IncludeTypesFrom(typeof(ApiPath).Assembly));
+builder.Services.AddTransient<AuthorRepository>();
+builder.Services.AddTransient<PizzaRecipeRepository>();
+builder.Services.AddTransient<AuthorService>();
 
 var app = builder.Build();
 
@@ -25,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
+
+AuthorController.MapEndpoints(app);
 
 app.UseHttpsRedirection();
 
@@ -94,7 +99,5 @@ using (var scope = app.Services.CreateScope())
         db.SaveChanges();
     }
 }
-
-MapFeatureEndpoints.Map(app);
 
 app.Run();

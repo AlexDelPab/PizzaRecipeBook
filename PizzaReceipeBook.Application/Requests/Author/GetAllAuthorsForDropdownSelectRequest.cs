@@ -1,0 +1,3 @@
+namespace PizzaReceipeBook.Application.Requests.Author;
+
+public record GetAllAuthorsForDropdownSelectRequest;

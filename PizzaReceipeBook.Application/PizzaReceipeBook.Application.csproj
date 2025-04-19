@@ -16,4 +16,8 @@
         <ProjectReference Include="..\PizzaReceipeBook.Infrastructure\PizzaReceipeBook.Infrastructure.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Services\PizzaRecipe\" />
+    </ItemGroup>
+
 </Project>

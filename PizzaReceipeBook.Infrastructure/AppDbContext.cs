@@ -6,5 +6,5 @@ namespace PizzaReceipeBook.Infrastructure;
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<PizzaRecipe> PizzaRecipes { get; set; } = null!;
-    public DbSet<Author> Authors { get; set; } = null!;
+    public DbSet<Domain.Author> Authors { get; set; } = null!;
 }
