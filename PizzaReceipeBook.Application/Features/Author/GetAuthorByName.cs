@@ -8,7 +8,7 @@ using softaware.Cqs;
 
 namespace PizzaReceipeBook.Application.Features.Author;
 
-public static class GetAuthorByFirstOrLastName
+public static class GetAuthorByName
 {
     public static RouteHandlerBuilder MapEndpoint(IEndpointRouteBuilder app)
     {
