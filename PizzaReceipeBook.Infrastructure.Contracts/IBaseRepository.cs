@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace PizzaReceipeBook.Infrastructure;
+namespace PizzaReceipeBook.Infrastructure.Contracts;
 
 public interface IBaseRepository<TEntity> where TEntity : class
 {
